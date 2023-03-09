@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+
+
+
+
+
+    <button class="btn btn-success btn-icon-split" ><a href="{{ path('ajoutercredit')  }}"><span class="text" style="color: white">Ajouter </span></a></button>
+
+
+    <br><br>
+
+    <input  id="myInput"  type="text" placeholder="search">
+
+
+    <table class="table table-borderless datatable">
+        <thead>
+        <tr>
+<th></th>
+            <th> </th>
+            <th class="text-center"> date </th>
+            <th>valeur </th>
+            <th>Client</th>
+            <th></th>
+
+        </thead>
+
+        <tbody id="myTable">
+
+
+        {% for i in tablecredits %}
+            <tr>
+
+                <td>             <a href="{{ path('pdf',{'id': i.id}) }}">  <img   width="30" src="https://cdn-icons-png.flaticon.com/512/337/337946.png">  </a>
+                </td>
+
+                <td>
+                    <a href="{{ path('modifiercredit',{'id': i.id}) }}" >
+
+                        Modifier
+                    </a>
+
+                    <a href="{{ path('supprimercredit',{'id': i.id}) }}"><img src="https://img.icons8.com/color/48/000000/trash--v2.png"/></a></td>
+
+
+                <td>{{(i.date).format('d/m/Y')}}</td>
+                <td>{{ i.valeur }}</td>
+                <td>{{ i.Client  }}</td>
+
+                <td>  <a href="{{ path('envoyeremail',{'id': i.id}) }}"><img width="20" height="20" src="https://cdn-icons-png.flaticon.com/512/732/732200.png"/></a></td>
+
+
+
+
+
+
+            </tr>
+
+        {% endfor %}
+
+
+        </tbody>
+        <tbody id="search">
+        </tbody>
+
+    </table>
+    {{ knp_pagination_render(tablecredits) }}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+
+{% endblock %}

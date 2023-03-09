@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+    <div class="nicdark_section">
+    <div class="nicdark_container nicdark_clearfix">
+    <div class="nicdark_space40"></div>
+    <div class="grid grid_12">
+
+        <div class="nicdark_space20"></div>
+        <h3 class="subtitle center"></h3>
+        <div class="nicdark_space20"></div>
+        <div class="nicdark_divider center big"><span class="nicdark_bg_grey2"></span></div>
+        <div class="nicdark_space10"></div>
+    </div>
+    <div class="nicdark_margin20">
+    <div class="nicdark_margin20">
+
+        <div class="grid grid_8">
+            <div class="nicdark_archive1 nicdark_bg_white nicdark_border_grey nicdark_sizing   ">
+                <div class="nicdark_textevidence nicdark_bg_yellow">
+                    <h4 class="white nicdark_margin20">Envoyer une reclamation</h4>
+                </div>
+
+                {{ form_start(form,{'attr': {'novalidate': 'novalidate'}} ) }}
+                <div class="nicdark_margin20">
+                    <div class="nicdark_focus nicdark_relative">
+
+
+
+
+
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_focus nicdark_relative">
+                            <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                                <h4>Client</h4>
+                            </div>
+                            <div class="nicdark_space20"></div>
+                            {{ form_errors(form.client) }}
+                            {{ form_widget(form.client, {'attr':{'class':'nicdark_bg_grey nicdark_border_grey   grey small subtitle', 'placeholder':'Client'}})}}
+                        </div>
+
+
+
+                        <div class="nicdark_space20"></div>
+                        <div class="nicdark_focus nicdark_relative">
+                            <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                                <h4>valeur</h4>
+                            </div>
+                            <div class="nicdark_space20"></div>
+                            {{ form_errors(form.valeur) }}
+                            {{ form_widget(form.valeur, {'attr':{'class':'nicdark_bg_grey nicdark_border_grey   grey small subtitle', 'placeholder':'valeur'}})}}
+                        </div>
+
+                        <div class="nicdark_focus nicdark_relative">
+                            <div class="nicdark_activity nicdark_marginleft100 nicdark_disable_marginleft_ipadpotr">
+                                <h4>date</h4>
+                            </div>
+                            <div class="nicdark_space20"></div>
+                            {{ form_errors(form.date) }}
+                            {{ form_widget(form.date, {'attr':{'class':'nicdark_bg_grey nicdark_border_grey   grey small subtitle', 'placeholder':'date'}})}}
+                        </div>
+
+
+
+
+
+
+
+
+                        <div class="nicdark_space20"></div>
+                        {#  <button type="submit" class="nicdark_mpopup_ajax nicdark_btn nicdark_bg_blue medium nicdark_outline  white nicdark_press" >Ajouter</button>#}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}

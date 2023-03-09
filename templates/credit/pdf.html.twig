@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mon PDF personnalisé</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+</head>
+<body>
+
+
+
+<h4>date deadline<h4>{{(pdf.date).format('d/m/Y')}}</h4></h4>
+<div class="header">
+    <h1>Client : <h2>{{ pdf.client }}</h2></h1>
+</div>
+<div class="content">
+    <p>Valeur credit<h3>{{ pdf.valeur }} dt</h3></p>
+</div>
+
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+        background-color: #008080;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .footer {
+        background-color: #008080;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+    }
+</style>

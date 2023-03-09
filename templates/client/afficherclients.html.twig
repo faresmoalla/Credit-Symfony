@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+
+
+
+
+
+    <button class="btn btn-success btn-icon-split" ><a href="{{ path('ajouterrevenus')  }}"><span class="text" style="color: white">Ajouter </span></a></button>
+
+
+    <br><br>
+
+    <input  id="myInput"  type="text" placeholder="search">
+
+
+    <table class="table table-borderless datatable">
+        <thead>
+        <tr>
+
+            <th> </th>
+
+            <th>nom </th>
+            <th>prenom</th>
+            <th>email </th>
+            <th>tel </th>
+        </thead>
+
+        <tbody id="myTable">
+
+
+        {% for i in tableclients %}
+            <tr>
+
+
+
+                <td>
+                    <a href="{{ path('modifierclient',{'id': i.id}) }}" >
+
+                        Modifier
+                    </a>
+
+                    <a href="{{ path('supprimerclient',{'id': i.id}) }}"><img src="https://img.icons8.com/color/48/000000/trash--v2.png"/></a></td>
+
+
+
+                <td>{{ i.nom }}</td>
+                <td>{{ i.prenom  }}</td>
+
+                <td>{{ i.email }}</td>
+                <td>{{ i.tel }}</td>
+
+
+            </tr>
+
+        {% endfor %}
+
+
+        </tbody>
+        <tbody id="search">
+        </tbody>
+
+    </table>
+    {{ knp_pagination_render(tableclients) }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+{% endblock %}
